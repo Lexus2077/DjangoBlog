@@ -1,0 +1,130 @@
+<style>
+    body
+    {
+        background: rgba(204,204,255, 0.7);
+    }
+
+    .nav
+    {
+         margin: 5px 10% 0 10%;
+         display: block;
+         text-align: center;
+    }
+
+    .nav .main
+    {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    .nav .admin
+    {
+        display: inline-block;
+    }
+
+    .nav .main a
+    {
+        font-size: 30px;
+        text-decoration: none;
+        color: red;
+    }
+    .nav .admin a
+    {
+        font-size: 30px;
+        text-decoration: none;
+    }
+
+
+    .posts
+    {
+        margin: 50px 10% 0 10%;
+        background: rgba(106,90,205, 0.8);
+        border-radius: 20px;
+        padding: 15px
+    }
+
+    .title
+    {
+        display: block;
+        background: white;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .desc-img
+    {
+        display: inline-block;
+        background: white;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    .description
+    {
+        display: inline-block;
+        width: 70%;
+        margin-right: 2%;
+        vertical-align: top;
+    }
+
+    .image
+    {
+      display: inline-block;
+      width: 25%;
+    }
+
+    .image img
+    {
+
+    vertical-align: center;
+    }
+
+    .author
+    {
+        display: block;
+        background: white;
+        border-radius: 20px;
+        padding: 10px
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Блог на Django</title>
+    </head>
+    <body>
+        <h1 style="text-align: center; font-size: 40px; font-weight: bold;">Посты</h1>
+        <div class="nav">
+            <div class="main"><a href="#">Главная</a></div>
+            <div class="admin"><a href="http://127.0.0.1:8000/admin/" target="_blank">Admin</a></div>
+        </div>
+        {% for post in post_list %}
+        <div class="posts">
+
+            <div class="title">
+                {{post.title}}
+            </div>
+
+            <div class="desc-img">
+                <div class="description">
+                    {{post.description}}
+                </div>
+                <div class="image">
+                    <img src="{{ post.image.url }}" alt="" style="width: 100%;">
+                </div>
+            </div>
+
+            <div class="author">
+                Автор: {{post.author}}
+            </div>
+
+            </div>
+        {% endfor %}
+    </body>
+</html>
