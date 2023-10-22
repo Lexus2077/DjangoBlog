@@ -8,3 +8,7 @@ class PostView(View):
     def get(self, request):
         posts = Post.objects.all()
         return render(request, 'blog/blog.html', {'post_list': posts})
+
+class TitulView(View):
+    def get(self, request):
+        return render(request, 'blog/titul.html')
